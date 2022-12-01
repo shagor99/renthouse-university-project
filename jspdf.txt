@@ -1,0 +1,32 @@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+_________________________
+
+<p style ="text-align:center;"> 
+    <a  href="javascript:void(0)" class="btn-download btn btn-danger"> Download PDF  </a> </p>
+<script>
+    const options = {
+      margin: 0.5,
+      filename: 'invoice.pdf',
+      image: { 
+        type: 'jpeg', 
+        quality: 2
+      },
+      html2canvas: { 
+        scale: 1 
+      },
+      jsPDF: { 
+        unit: 'in', 
+        format: 'a4', 
+        orientation: 'portrait' 
+      }
+    }
+    
+    $('.btn-download').click(function(e){
+      e.preventDefault();
+      const element = document.getElementById('invoice');
+      html2pdf().from(element).set(options).save();
+    });
+   
+    </script
